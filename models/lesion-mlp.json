@@ -1,0 +1,51 @@
+{
+  "name": "nullius-lesion-mlp",
+  "version": "1.0.0",
+  "architecture": "9-12-1 MLP, ReLU, sigmoid output",
+  "feature_names": [
+    "area_fraction",
+    "asymmetry",
+    "border_irregularity",
+    "edge_gradient",
+    "contrast",
+    "intensity_variance",
+    "variegation",
+    "eccentricity",
+    "diameter_norm"
+  ],
+  "feature_mean": [
+    0.282037,
+    0.13976,
+    0.172656,
+    0.647831,
+    0.796415,
+    0.010531,
+    0.028212,
+    0.51235,
+    0.713663
+  ],
+  "feature_std": [
+    0.089473,
+    0.074782,
+    0.213647,
+    0.027536,
+    0.025818,
+    0.018255,
+    0.010436,
+    0.13942,
+    0.17909
+  ],
+  "operating_point": 0.468747,
+  "operating_point_rule": "highest specificity at sensitivity >= 0.90, chosen on train",
+  "calibration": {
+    "method": "platt",
+    "a": 0.600412,
+    "b": 0.655104
+  },
+  "trained_on": "synthetic dermoscopy generator (nullius.lesions)",
+  "train_size": 40,
+  "test_size": 40,
+  "seed": 20260731,
+  "epochs": 400,
+  "caveat": "Synthetic data. These metrics measure pipeline integrity, not clinical validity. Not a medical device. See ADR-009."
+}

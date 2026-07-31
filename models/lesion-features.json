@@ -1,0 +1,2322 @@
+[
+  {
+    "study_id": "stu-000",
+    "patient_id": "pat-001",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-000.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "ATYPICAL: labelled benign but generated with suspicious morphology - a false positive here is the correct cautious behaviour",
+    "severity": 0.848,
+    "atypical": true,
+    "features": {
+      "area_fraction": 0.402466,
+      "asymmetry": 0.259175,
+      "border_irregularity": 0.503802,
+      "edge_gradient": 0.638593,
+      "contrast": 0.745428,
+      "intensity_variance": 0.020192,
+      "variegation": 0.055735,
+      "eccentricity": 0.663191,
+      "diameter_norm": 0.935845
+    },
+    "quality": {
+      "focus_score": 8.7284,
+      "clipped_fraction": 0.049,
+      "lesion_area_fraction": 0.4025,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 9.358
+  },
+  {
+    "study_id": "stu-001",
+    "patient_id": "pat-002",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-001.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "severity 0.66 drawn from the suspicious distribution",
+    "severity": 0.6594,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.319336,
+      "asymmetry": 0.195241,
+      "border_irregularity": 0.150238,
+      "edge_gradient": 0.658319,
+      "contrast": 0.824729,
+      "intensity_variance": 0.002028,
+      "variegation": 0.019257,
+      "eccentricity": 0.64163,
+      "diameter_norm": 0.845248
+    },
+    "quality": {
+      "focus_score": 7.4104,
+      "clipped_fraction": 0.1525,
+      "lesion_area_fraction": 0.3193,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.452
+  },
+  {
+    "study_id": "stu-002",
+    "patient_id": "pat-003",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-002.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.86 drawn from the suspicious distribution",
+    "severity": 0.8581,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.381897,
+      "asymmetry": 0.250999,
+      "border_irregularity": 0.513778,
+      "edge_gradient": 0.616839,
+      "contrast": 0.713447,
+      "intensity_variance": 0.094354,
+      "variegation": 0.051128,
+      "eccentricity": 0.718692,
+      "diameter_norm": 1.0
+    },
+    "quality": {
+      "focus_score": 8.2569,
+      "clipped_fraction": 0.0493,
+      "lesion_area_fraction": 0.3819,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 10.106
+  },
+  {
+    "study_id": "stu-003",
+    "patient_id": "pat-004",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-003.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.42 drawn from the benign distribution",
+    "severity": 0.4178,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.195862,
+      "asymmetry": 0.094266,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.662153,
+      "contrast": 0.814793,
+      "intensity_variance": 0.002746,
+      "variegation": 0.02256,
+      "eccentricity": 0.44626,
+      "diameter_norm": 0.553253
+    },
+    "quality": {
+      "focus_score": 8.3321,
+      "clipped_fraction": 0.111,
+      "lesion_area_fraction": 0.1959,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.533
+  },
+  {
+    "study_id": "stu-004",
+    "patient_id": "pat-005",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-004.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "BACK",
+    "truth_note": "severity 0.75 drawn from the suspicious distribution",
+    "severity": 0.7491,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.350708,
+      "asymmetry": 0.192656,
+      "border_irregularity": 0.382925,
+      "edge_gradient": 0.672578,
+      "contrast": 0.808598,
+      "intensity_variance": 0.002637,
+      "variegation": 0.021962,
+      "eccentricity": 0.589058,
+      "diameter_norm": 0.828632
+    },
+    "quality": {
+      "focus_score": 9.185,
+      "clipped_fraction": 0.1274,
+      "lesion_area_fraction": 0.3507,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.286
+  },
+  {
+    "study_id": "stu-005",
+    "patient_id": "pat-006",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-005.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "CALF",
+    "truth_note": "severity 0.49 drawn from the benign distribution",
+    "severity": 0.493,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.314453,
+      "asymmetry": 0.110734,
+      "border_irregularity": 0.036129,
+      "edge_gradient": 0.630566,
+      "contrast": 0.814533,
+      "intensity_variance": 0.028352,
+      "variegation": 0.03092,
+      "eccentricity": 0.498807,
+      "diameter_norm": 0.721217
+    },
+    "quality": {
+      "focus_score": 6.6587,
+      "clipped_fraction": 0.1089,
+      "lesion_area_fraction": 0.3145,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.212
+  },
+  {
+    "study_id": "stu-006",
+    "patient_id": "pat-007",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-006.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "ATYPICAL: labelled suspicious but generated with benign morphology - the model is expected to get this wrong or abstain",
+    "severity": 0.4922,
+    "atypical": true,
+    "features": {
+      "area_fraction": 0.255371,
+      "asymmetry": 0.098112,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.619112,
+      "contrast": 0.785129,
+      "intensity_variance": 0.004125,
+      "variegation": 0.027838,
+      "eccentricity": 0.530616,
+      "diameter_norm": 0.648451
+    },
+    "quality": {
+      "focus_score": 6.1298,
+      "clipped_fraction": 0.1058,
+      "lesion_area_fraction": 0.2554,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.485
+  },
+  {
+    "study_id": "stu-007",
+    "patient_id": "pat-008",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-007.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.27 drawn from the benign distribution",
+    "severity": 0.2745,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.219849,
+      "asymmetry": 0.066768,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.614612,
+      "contrast": 0.825522,
+      "intensity_variance": 0.001948,
+      "variegation": 0.019122,
+      "eccentricity": 0.398971,
+      "diameter_norm": 0.56541
+    },
+    "quality": {
+      "focus_score": 6.8315,
+      "clipped_fraction": 0.1366,
+      "lesion_area_fraction": 0.2198,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.654
+  },
+  {
+    "study_id": "stu-008",
+    "patient_id": "pat-009",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-008.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "severity 0.74 drawn from the suspicious distribution",
+    "severity": 0.7365,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.378113,
+      "asymmetry": 0.168281,
+      "border_irregularity": 0.250426,
+      "edge_gradient": 0.640953,
+      "contrast": 0.800395,
+      "intensity_variance": 0.003954,
+      "variegation": 0.025591,
+      "eccentricity": 0.606846,
+      "diameter_norm": 0.844079
+    },
+    "quality": {
+      "focus_score": 8.8009,
+      "clipped_fraction": 0.0766,
+      "lesion_area_fraction": 0.3781,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.441
+  },
+  {
+    "study_id": "stu-009",
+    "patient_id": "pat-010",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-009.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "severity 0.68 drawn from the suspicious distribution",
+    "severity": 0.6842,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.297302,
+      "asymmetry": 0.210224,
+      "border_irregularity": 0.253521,
+      "edge_gradient": 0.669712,
+      "contrast": 0.777658,
+      "intensity_variance": 0.034297,
+      "variegation": 0.036245,
+      "eccentricity": 0.589449,
+      "diameter_norm": 0.814624
+    },
+    "quality": {
+      "focus_score": 9.6287,
+      "clipped_fraction": 0.0516,
+      "lesion_area_fraction": 0.2973,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.146
+  },
+  {
+    "study_id": "stu-010",
+    "patient_id": "pat-011",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-010.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "severity 0.73 drawn from the suspicious distribution",
+    "severity": 0.7259,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.346191,
+      "asymmetry": 0.184944,
+      "border_irregularity": 0.271121,
+      "edge_gradient": 0.63123,
+      "contrast": 0.779949,
+      "intensity_variance": 0.01197,
+      "variegation": 0.03604,
+      "eccentricity": 0.667969,
+      "diameter_norm": 0.885626
+    },
+    "quality": {
+      "focus_score": 7.5944,
+      "clipped_fraction": 0.0534,
+      "lesion_area_fraction": 0.3462,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.856
+  },
+  {
+    "study_id": "stu-011",
+    "patient_id": "pat-012",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-011.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.60 drawn from the suspicious distribution",
+    "severity": 0.5968,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.256592,
+      "asymmetry": 0.179948,
+      "border_irregularity": 0.045353,
+      "edge_gradient": 0.639556,
+      "contrast": 0.793981,
+      "intensity_variance": 0.003332,
+      "variegation": 0.025178,
+      "eccentricity": 0.635103,
+      "diameter_norm": 0.744606
+    },
+    "quality": {
+      "focus_score": 7.1414,
+      "clipped_fraction": 0.1133,
+      "lesion_area_fraction": 0.2566,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.446
+  },
+  {
+    "study_id": "stu-012",
+    "patient_id": "pat-001",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-012.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "CALF",
+    "truth_note": "severity 0.61 drawn from the suspicious distribution",
+    "severity": 0.6123,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.305542,
+      "asymmetry": 0.167599,
+      "border_irregularity": 0.13324,
+      "edge_gradient": 0.68322,
+      "contrast": 0.821214,
+      "intensity_variance": 0.002,
+      "variegation": 0.019278,
+      "eccentricity": 0.571521,
+      "diameter_norm": 0.789459
+    },
+    "quality": {
+      "focus_score": 8.6791,
+      "clipped_fraction": 0.1529,
+      "lesion_area_fraction": 0.3055,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.895
+  },
+  {
+    "study_id": "stu-013",
+    "patient_id": "pat-002",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-013.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.61 drawn from the benign distribution",
+    "severity": 0.6149,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.277222,
+      "asymmetry": 0.145751,
+      "border_irregularity": 0.157202,
+      "edge_gradient": 0.650786,
+      "contrast": 0.790232,
+      "intensity_variance": 0.01003,
+      "variegation": 0.045132,
+      "eccentricity": 0.48792,
+      "diameter_norm": 0.673264
+    },
+    "quality": {
+      "focus_score": 9.6036,
+      "clipped_fraction": 0.0532,
+      "lesion_area_fraction": 0.2772,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.733
+  },
+  {
+    "study_id": "stu-014",
+    "patient_id": "pat-003",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-014.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.38 drawn from the benign distribution",
+    "severity": 0.3804,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.243286,
+      "asymmetry": 0.112393,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.642025,
+      "contrast": 0.82169,
+      "intensity_variance": 0.002973,
+      "variegation": 0.02456,
+      "eccentricity": 0.480787,
+      "diameter_norm": 0.634414
+    },
+    "quality": {
+      "focus_score": 6.3749,
+      "clipped_fraction": 0.1086,
+      "lesion_area_fraction": 0.2433,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.344
+  },
+  {
+    "study_id": "stu-015",
+    "patient_id": "pat-004",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-015.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "CALF",
+    "truth_note": "severity 0.78 drawn from the suspicious distribution",
+    "severity": 0.7847,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.393982,
+      "asymmetry": 0.242603,
+      "border_irregularity": 0.318225,
+      "edge_gradient": 0.655336,
+      "contrast": 0.777625,
+      "intensity_variance": 0.032826,
+      "variegation": 0.028727,
+      "eccentricity": 0.673843,
+      "diameter_norm": 0.937992
+    },
+    "quality": {
+      "focus_score": 10.7702,
+      "clipped_fraction": 0.1141,
+      "lesion_area_fraction": 0.394,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 9.38
+  },
+  {
+    "study_id": "stu-016",
+    "patient_id": "pat-005",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-016.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "NECK",
+    "truth_note": "severity 0.26 drawn from the benign distribution",
+    "severity": 0.2608,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.18689,
+      "asymmetry": 0.073155,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.589197,
+      "contrast": 0.798389,
+      "intensity_variance": 0.003135,
+      "variegation": 0.024397,
+      "eccentricity": 0.433561,
+      "diameter_norm": 0.528228
+    },
+    "quality": {
+      "focus_score": 5.747,
+      "clipped_fraction": 0.0993,
+      "lesion_area_fraction": 0.1869,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.282
+  },
+  {
+    "study_id": "stu-017",
+    "patient_id": "pat-006",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-017.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.27 drawn from the benign distribution",
+    "severity": 0.2715,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.189148,
+      "asymmetry": 0.079058,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.621827,
+      "contrast": 0.806823,
+      "intensity_variance": 0.003005,
+      "variegation": 0.024202,
+      "eccentricity": 0.41305,
+      "diameter_norm": 0.518496
+    },
+    "quality": {
+      "focus_score": 5.6359,
+      "clipped_fraction": 0.0971,
+      "lesion_area_fraction": 0.1891,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.185
+  },
+  {
+    "study_id": "stu-018",
+    "patient_id": "pat-007",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-018.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "NECK",
+    "truth_note": "severity 0.02 drawn from the benign distribution",
+    "severity": 0.02,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.124878,
+      "asymmetry": 0.023216,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.609439,
+      "contrast": 0.788112,
+      "intensity_variance": 0.002675,
+      "variegation": 0.020956,
+      "eccentricity": 0.172799,
+      "diameter_norm": 0.404187
+    },
+    "quality": {
+      "focus_score": 4.7184,
+      "clipped_fraction": 0.0964,
+      "lesion_area_fraction": 0.1249,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.042
+  },
+  {
+    "study_id": "stu-019",
+    "patient_id": "pat-008",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-019.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "CALF",
+    "truth_note": "severity 0.87 drawn from the suspicious distribution",
+    "severity": 0.8653,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.385803,
+      "asymmetry": 0.22971,
+      "border_irregularity": 0.542199,
+      "edge_gradient": 0.68313,
+      "contrast": 0.781529,
+      "intensity_variance": 0.053864,
+      "variegation": 0.056733,
+      "eccentricity": 0.614213,
+      "diameter_norm": 0.897351
+    },
+    "quality": {
+      "focus_score": 11.0284,
+      "clipped_fraction": 0.1412,
+      "lesion_area_fraction": 0.3858,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.974
+  },
+  {
+    "study_id": "stu-020",
+    "patient_id": "pat-009",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-020.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.02 drawn from the benign distribution",
+    "severity": 0.02,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.108582,
+      "asymmetry": 0.015739,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.646866,
+      "contrast": 0.787521,
+      "intensity_variance": 0.002789,
+      "variegation": 0.020329,
+      "eccentricity": 0.126749,
+      "diameter_norm": 0.364233
+    },
+    "quality": {
+      "focus_score": 4.6089,
+      "clipped_fraction": 0.0928,
+      "lesion_area_fraction": 0.1086,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 3.642
+  },
+  {
+    "study_id": "stu-021",
+    "patient_id": "pat-010",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-021.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "severity 0.83 drawn from the suspicious distribution",
+    "severity": 0.8308,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.372253,
+      "asymmetry": 0.228972,
+      "border_irregularity": 0.38665,
+      "edge_gradient": 0.638479,
+      "contrast": 0.759307,
+      "intensity_variance": 0.039799,
+      "variegation": 0.032917,
+      "eccentricity": 0.58401,
+      "diameter_norm": 0.832811
+    },
+    "quality": {
+      "focus_score": 8.5828,
+      "clipped_fraction": 0.0624,
+      "lesion_area_fraction": 0.3723,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.328
+  },
+  {
+    "study_id": "stu-022",
+    "patient_id": "pat-011",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-022.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.74 drawn from the suspicious distribution",
+    "severity": 0.7425,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.372803,
+      "asymmetry": 0.188687,
+      "border_irregularity": 0.292743,
+      "edge_gradient": 0.675684,
+      "contrast": 0.78305,
+      "intensity_variance": 0.003839,
+      "variegation": 0.026343,
+      "eccentricity": 0.551714,
+      "diameter_norm": 0.873135
+    },
+    "quality": {
+      "focus_score": 9.009,
+      "clipped_fraction": 0.1089,
+      "lesion_area_fraction": 0.3728,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.731
+  },
+  {
+    "study_id": "stu-023",
+    "patient_id": "pat-012",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-023.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.18 drawn from the benign distribution",
+    "severity": 0.1818,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.158936,
+      "asymmetry": 0.040899,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.603315,
+      "contrast": 0.798944,
+      "intensity_variance": 0.002244,
+      "variegation": 0.019829,
+      "eccentricity": 0.246964,
+      "diameter_norm": 0.466556
+    },
+    "quality": {
+      "focus_score": 4.8311,
+      "clipped_fraction": 0.1079,
+      "lesion_area_fraction": 0.1589,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.666
+  },
+  {
+    "study_id": "stu-024",
+    "patient_id": "pat-001",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-024.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.23 drawn from the benign distribution",
+    "severity": 0.2263,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.230347,
+      "asymmetry": 0.040938,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.619258,
+      "contrast": 0.825013,
+      "intensity_variance": 0.002519,
+      "variegation": 0.022779,
+      "eccentricity": 0.360289,
+      "diameter_norm": 0.574513
+    },
+    "quality": {
+      "focus_score": 6.0851,
+      "clipped_fraction": 0.1134,
+      "lesion_area_fraction": 0.2303,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.745
+  },
+  {
+    "study_id": "stu-025",
+    "patient_id": "pat-002",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-025.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.02 drawn from the benign distribution",
+    "severity": 0.02,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.134521,
+      "asymmetry": 0.017468,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.660113,
+      "contrast": 0.827186,
+      "intensity_variance": 0.00165,
+      "variegation": 0.017188,
+      "eccentricity": 0.143384,
+      "diameter_norm": 0.409152
+    },
+    "quality": {
+      "focus_score": 5.0032,
+      "clipped_fraction": 0.1204,
+      "lesion_area_fraction": 0.1345,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.092
+  },
+  {
+    "study_id": "stu-026",
+    "patient_id": "pat-003",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-026.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "CALF",
+    "truth_note": "severity 0.82 drawn from the suspicious distribution",
+    "severity": 0.8243,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.379333,
+      "asymmetry": 0.222526,
+      "border_irregularity": 0.445531,
+      "edge_gradient": 0.659191,
+      "contrast": 0.785694,
+      "intensity_variance": 0.003552,
+      "variegation": 0.025515,
+      "eccentricity": 0.654064,
+      "diameter_norm": 0.95517
+    },
+    "quality": {
+      "focus_score": 9.4339,
+      "clipped_fraction": 0.1151,
+      "lesion_area_fraction": 0.3793,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 9.552
+  },
+  {
+    "study_id": "stu-027",
+    "patient_id": "pat-004",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-027.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "CALF",
+    "truth_note": "severity 0.83 drawn from the suspicious distribution",
+    "severity": 0.832,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.411865,
+      "asymmetry": 0.236292,
+      "border_irregularity": 0.379327,
+      "edge_gradient": 0.620588,
+      "contrast": 0.762935,
+      "intensity_variance": 0.010089,
+      "variegation": 0.036066,
+      "eccentricity": 0.636681,
+      "diameter_norm": 0.94682
+    },
+    "quality": {
+      "focus_score": 8.6024,
+      "clipped_fraction": 0.051,
+      "lesion_area_fraction": 0.4119,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 9.468
+  },
+  {
+    "study_id": "stu-028",
+    "patient_id": "pat-005",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-028.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "CALF",
+    "truth_note": "severity 0.55 drawn from the suspicious distribution",
+    "severity": 0.5522,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.278503,
+      "asymmetry": 0.143875,
+      "border_irregularity": 0.029798,
+      "edge_gradient": 0.67468,
+      "contrast": 0.827597,
+      "intensity_variance": 0.002539,
+      "variegation": 0.022644,
+      "eccentricity": 0.604678,
+      "diameter_norm": 0.757304
+    },
+    "quality": {
+      "focus_score": 8.0054,
+      "clipped_fraction": 0.095,
+      "lesion_area_fraction": 0.2785,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.573
+  },
+  {
+    "study_id": "stu-029",
+    "patient_id": "pat-006",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-029.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.42 drawn from the benign distribution",
+    "severity": 0.4177,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.243164,
+      "asymmetry": 0.100276,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.649566,
+      "contrast": 0.823348,
+      "intensity_variance": 0.002216,
+      "variegation": 0.020763,
+      "eccentricity": 0.431307,
+      "diameter_norm": 0.592036
+    },
+    "quality": {
+      "focus_score": 6.0824,
+      "clipped_fraction": 0.1292,
+      "lesion_area_fraction": 0.2432,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.92
+  },
+  {
+    "study_id": "stu-030",
+    "patient_id": "pat-007",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-030.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.45 drawn from the benign distribution",
+    "severity": 0.4538,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.273315,
+      "asymmetry": 0.11657,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.590705,
+      "contrast": 0.778116,
+      "intensity_variance": 0.006049,
+      "variegation": 0.034563,
+      "eccentricity": 0.550564,
+      "diameter_norm": 0.703706
+    },
+    "quality": {
+      "focus_score": 5.5394,
+      "clipped_fraction": 0.0641,
+      "lesion_area_fraction": 0.2733,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.037
+  },
+  {
+    "study_id": "stu-031",
+    "patient_id": "pat-008",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-031.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.67 drawn from the suspicious distribution",
+    "severity": 0.6747,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.315979,
+      "asymmetry": 0.216631,
+      "border_irregularity": 0.29273,
+      "edge_gradient": 0.668869,
+      "contrast": 0.788249,
+      "intensity_variance": 0.006677,
+      "variegation": 0.02673,
+      "eccentricity": 0.641445,
+      "diameter_norm": 0.843756
+    },
+    "quality": {
+      "focus_score": 7.7085,
+      "clipped_fraction": 0.1335,
+      "lesion_area_fraction": 0.316,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.438
+  },
+  {
+    "study_id": "stu-032",
+    "patient_id": "pat-009",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-032.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.98 drawn from the suspicious distribution",
+    "severity": 0.9798,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.445923,
+      "asymmetry": 0.311046,
+      "border_irregularity": 0.830957,
+      "edge_gradient": 0.661884,
+      "contrast": 0.740022,
+      "intensity_variance": 0.036975,
+      "variegation": 0.031967,
+      "eccentricity": 0.646874,
+      "diameter_norm": 1.0
+    },
+    "quality": {
+      "focus_score": 11.1571,
+      "clipped_fraction": 0.0501,
+      "lesion_area_fraction": 0.4459,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 10.259
+  },
+  {
+    "study_id": "stu-033",
+    "patient_id": "pat-010",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-033.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.69 drawn from the suspicious distribution",
+    "severity": 0.6903,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.314758,
+      "asymmetry": 0.207097,
+      "border_irregularity": 0.209787,
+      "edge_gradient": 0.660739,
+      "contrast": 0.813278,
+      "intensity_variance": 0.002635,
+      "variegation": 0.022453,
+      "eccentricity": 0.572028,
+      "diameter_norm": 0.813804
+    },
+    "quality": {
+      "focus_score": 8.5345,
+      "clipped_fraction": 0.1352,
+      "lesion_area_fraction": 0.3148,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.138
+  },
+  {
+    "study_id": "stu-034",
+    "patient_id": "pat-011",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-034.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.57 drawn from the benign distribution",
+    "severity": 0.5724,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.280273,
+      "asymmetry": 0.120971,
+      "border_irregularity": 0.048717,
+      "edge_gradient": 0.691382,
+      "contrast": 0.815956,
+      "intensity_variance": 0.002202,
+      "variegation": 0.020426,
+      "eccentricity": 0.535896,
+      "diameter_norm": 0.70635
+    },
+    "quality": {
+      "focus_score": 7.9385,
+      "clipped_fraction": 0.1386,
+      "lesion_area_fraction": 0.2803,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.064
+  },
+  {
+    "study_id": "stu-035",
+    "patient_id": "pat-012",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-035.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.37 drawn from the benign distribution",
+    "severity": 0.3693,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.212646,
+      "asymmetry": 0.118829,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.589125,
+      "contrast": 0.785914,
+      "intensity_variance": 0.014827,
+      "variegation": 0.057764,
+      "eccentricity": 0.485578,
+      "diameter_norm": 0.614231
+    },
+    "quality": {
+      "focus_score": 9.2025,
+      "clipped_fraction": 0.058,
+      "lesion_area_fraction": 0.2126,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.142
+  },
+  {
+    "study_id": "stu-036",
+    "patient_id": "pat-001",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-036.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "severity 0.72 drawn from the suspicious distribution",
+    "severity": 0.7212,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.33783,
+      "asymmetry": 0.197019,
+      "border_irregularity": 0.390571,
+      "edge_gradient": 0.677101,
+      "contrast": 0.803679,
+      "intensity_variance": 0.007649,
+      "variegation": 0.027608,
+      "eccentricity": 0.579747,
+      "diameter_norm": 0.807097
+    },
+    "quality": {
+      "focus_score": 8.7646,
+      "clipped_fraction": 0.1349,
+      "lesion_area_fraction": 0.3378,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.071
+  },
+  {
+    "study_id": "stu-037",
+    "patient_id": "pat-002",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-037.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.50 drawn from the benign distribution",
+    "severity": 0.5034,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.281555,
+      "asymmetry": 0.15879,
+      "border_irregularity": 0.052448,
+      "edge_gradient": 0.664554,
+      "contrast": 0.787618,
+      "intensity_variance": 0.004074,
+      "variegation": 0.027597,
+      "eccentricity": 0.599112,
+      "diameter_norm": 0.758034
+    },
+    "quality": {
+      "focus_score": 9.0694,
+      "clipped_fraction": 0.1134,
+      "lesion_area_fraction": 0.2816,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.58
+  },
+  {
+    "study_id": "stu-038",
+    "patient_id": "pat-003",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-038.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.07 drawn from the benign distribution",
+    "severity": 0.0702,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.159058,
+      "asymmetry": 0.033384,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.656787,
+      "contrast": 0.806917,
+      "intensity_variance": 0.002844,
+      "variegation": 0.022691,
+      "eccentricity": 0.268708,
+      "diameter_norm": 0.451866
+    },
+    "quality": {
+      "focus_score": 5.2607,
+      "clipped_fraction": 0.1024,
+      "lesion_area_fraction": 0.1591,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.519
+  },
+  {
+    "study_id": "stu-039",
+    "patient_id": "pat-004",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-039.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.20 drawn from the benign distribution",
+    "severity": 0.2038,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.169678,
+      "asymmetry": 0.048201,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.649557,
+      "contrast": 0.803233,
+      "intensity_variance": 0.010033,
+      "variegation": 0.027631,
+      "eccentricity": 0.262729,
+      "diameter_norm": 0.488315
+    },
+    "quality": {
+      "focus_score": 5.9475,
+      "clipped_fraction": 0.0992,
+      "lesion_area_fraction": 0.1697,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.883
+  },
+  {
+    "study_id": "stu-040",
+    "patient_id": "pat-005",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-040.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.67 drawn from the suspicious distribution",
+    "severity": 0.6684,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.292969,
+      "asymmetry": 0.174583,
+      "border_irregularity": 0.262894,
+      "edge_gradient": 0.667372,
+      "contrast": 0.779326,
+      "intensity_variance": 0.005278,
+      "variegation": 0.031234,
+      "eccentricity": 0.580994,
+      "diameter_norm": 0.781117
+    },
+    "quality": {
+      "focus_score": 7.7405,
+      "clipped_fraction": 0.0876,
+      "lesion_area_fraction": 0.293,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.811
+  },
+  {
+    "study_id": "stu-041",
+    "patient_id": "pat-006",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-041.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.26 drawn from the benign distribution",
+    "severity": 0.2617,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.196106,
+      "asymmetry": 0.059913,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.5989,
+      "contrast": 0.794779,
+      "intensity_variance": 0.003381,
+      "variegation": 0.025265,
+      "eccentricity": 0.342653,
+      "diameter_norm": 0.52138
+    },
+    "quality": {
+      "focus_score": 10.2571,
+      "clipped_fraction": 0.1058,
+      "lesion_area_fraction": 0.1961,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.214
+  },
+  {
+    "study_id": "stu-042",
+    "patient_id": "pat-007",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-042.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "severity 0.55 drawn from the suspicious distribution",
+    "severity": 0.552,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.240906,
+      "asymmetry": 0.146187,
+      "border_irregularity": 0.122915,
+      "edge_gradient": 0.688225,
+      "contrast": 0.83012,
+      "intensity_variance": 0.001825,
+      "variegation": 0.018719,
+      "eccentricity": 0.490213,
+      "diameter_norm": 0.660991
+    },
+    "quality": {
+      "focus_score": 9.9701,
+      "clipped_fraction": 0.1475,
+      "lesion_area_fraction": 0.2409,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.61
+  },
+  {
+    "study_id": "stu-043",
+    "patient_id": "pat-008",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-043.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.28 drawn from the benign distribution",
+    "severity": 0.2755,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.148315,
+      "asymmetry": 0.069959,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.613917,
+      "contrast": 0.803763,
+      "intensity_variance": 0.002865,
+      "variegation": 0.022757,
+      "eccentricity": 0.391873,
+      "diameter_norm": 0.460928
+    },
+    "quality": {
+      "focus_score": 7.4687,
+      "clipped_fraction": 0.0991,
+      "lesion_area_fraction": 0.1483,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.609
+  },
+  {
+    "study_id": "stu-044",
+    "patient_id": "pat-009",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-044.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.57 drawn from the suspicious distribution",
+    "severity": 0.5661,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.299561,
+      "asymmetry": 0.142013,
+      "border_irregularity": 0.147226,
+      "edge_gradient": 0.654146,
+      "contrast": 0.810224,
+      "intensity_variance": 0.003367,
+      "variegation": 0.025018,
+      "eccentricity": 0.543249,
+      "diameter_norm": 0.74471
+    },
+    "quality": {
+      "focus_score": 7.4917,
+      "clipped_fraction": 0.1129,
+      "lesion_area_fraction": 0.2996,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.447
+  },
+  {
+    "study_id": "stu-045",
+    "patient_id": "pat-010",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-045.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "ATYPICAL: labelled suspicious but generated with benign morphology - the model is expected to get this wrong or abstain",
+    "severity": 0.4145,
+    "atypical": true,
+    "features": {
+      "area_fraction": 0.232727,
+      "asymmetry": 0.101757,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.641253,
+      "contrast": 0.824662,
+      "intensity_variance": 0.002219,
+      "variegation": 0.021189,
+      "eccentricity": 0.464901,
+      "diameter_norm": 0.620689
+    },
+    "quality": {
+      "focus_score": 7.153,
+      "clipped_fraction": 0.1231,
+      "lesion_area_fraction": 0.2327,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.207
+  },
+  {
+    "study_id": "stu-046",
+    "patient_id": "pat-011",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-046.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.31 drawn from the benign distribution",
+    "severity": 0.3107,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.185669,
+      "asymmetry": 0.09073,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.648667,
+      "contrast": 0.807235,
+      "intensity_variance": 0.002714,
+      "variegation": 0.022364,
+      "eccentricity": 0.441056,
+      "diameter_norm": 0.512584
+    },
+    "quality": {
+      "focus_score": 6.2117,
+      "clipped_fraction": 0.113,
+      "lesion_area_fraction": 0.1857,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.126
+  },
+  {
+    "study_id": "stu-047",
+    "patient_id": "pat-012",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-047.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.67 drawn from the suspicious distribution",
+    "severity": 0.6708,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.315796,
+      "asymmetry": 0.150657,
+      "border_irregularity": 0.23179,
+      "edge_gradient": 0.652157,
+      "contrast": 0.780302,
+      "intensity_variance": 0.060896,
+      "variegation": 0.078325,
+      "eccentricity": 0.561936,
+      "diameter_norm": 0.775973
+    },
+    "quality": {
+      "focus_score": 7.7438,
+      "clipped_fraction": 0.0529,
+      "lesion_area_fraction": 0.3158,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.76
+  },
+  {
+    "study_id": "stu-048",
+    "patient_id": "pat-001",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-048.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.06 drawn from the benign distribution",
+    "severity": 0.0586,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.137573,
+      "asymmetry": 0.024401,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.60662,
+      "contrast": 0.806888,
+      "intensity_variance": 0.002731,
+      "variegation": 0.021119,
+      "eccentricity": 0.329177,
+      "diameter_norm": 0.418268
+    },
+    "quality": {
+      "focus_score": 4.852,
+      "clipped_fraction": 0.1055,
+      "lesion_area_fraction": 0.1376,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.183
+  },
+  {
+    "study_id": "stu-049",
+    "patient_id": "pat-002",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-049.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.63 drawn from the suspicious distribution",
+    "severity": 0.6264,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.297424,
+      "asymmetry": 0.145393,
+      "border_irregularity": 0.095452,
+      "edge_gradient": 0.60966,
+      "contrast": 0.758222,
+      "intensity_variance": 0.02459,
+      "variegation": 0.067878,
+      "eccentricity": 0.506139,
+      "diameter_norm": 0.718465
+    },
+    "quality": {
+      "focus_score": 7.4577,
+      "clipped_fraction": 0.0507,
+      "lesion_area_fraction": 0.2974,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.185
+  },
+  {
+    "study_id": "stu-050",
+    "patient_id": "pat-003",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-050.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.75 drawn from the suspicious distribution",
+    "severity": 0.7543,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.373535,
+      "asymmetry": 0.171405,
+      "border_irregularity": 0.273877,
+      "edge_gradient": 0.642986,
+      "contrast": 0.787455,
+      "intensity_variance": 0.003104,
+      "variegation": 0.024021,
+      "eccentricity": 0.636254,
+      "diameter_norm": 0.871415
+    },
+    "quality": {
+      "focus_score": 8.4583,
+      "clipped_fraction": 0.1283,
+      "lesion_area_fraction": 0.3735,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.714
+  },
+  {
+    "study_id": "stu-051",
+    "patient_id": "pat-004",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-051.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.63 drawn from the suspicious distribution",
+    "severity": 0.6302,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.31958,
+      "asymmetry": 0.200153,
+      "border_irregularity": 0.217204,
+      "edge_gradient": 0.639848,
+      "contrast": 0.791769,
+      "intensity_variance": 0.028671,
+      "variegation": 0.035354,
+      "eccentricity": 0.614363,
+      "diameter_norm": 0.8299
+    },
+    "quality": {
+      "focus_score": 7.4921,
+      "clipped_fraction": 0.1266,
+      "lesion_area_fraction": 0.3196,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.299
+  },
+  {
+    "study_id": "stu-052",
+    "patient_id": "pat-005",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-052.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "CALF",
+    "truth_note": "severity 0.26 drawn from the benign distribution",
+    "severity": 0.2579,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.178467,
+      "asymmetry": 0.076265,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.628984,
+      "contrast": 0.782288,
+      "intensity_variance": 0.00378,
+      "variegation": 0.026899,
+      "eccentricity": 0.422038,
+      "diameter_norm": 0.501893
+    },
+    "quality": {
+      "focus_score": 6.4833,
+      "clipped_fraction": 0.0921,
+      "lesion_area_fraction": 0.1785,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.019
+  },
+  {
+    "study_id": "stu-053",
+    "patient_id": "pat-006",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-053.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.50 drawn from the benign distribution",
+    "severity": 0.5048,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.256348,
+      "asymmetry": 0.115119,
+      "border_irregularity": 0.028615,
+      "edge_gradient": 0.662849,
+      "contrast": 0.823197,
+      "intensity_variance": 0.019829,
+      "variegation": 0.04398,
+      "eccentricity": 0.494288,
+      "diameter_norm": 0.647821
+    },
+    "quality": {
+      "focus_score": 6.5007,
+      "clipped_fraction": 0.1339,
+      "lesion_area_fraction": 0.2563,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.478
+  },
+  {
+    "study_id": "stu-054",
+    "patient_id": "pat-007",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-054.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "NECK",
+    "truth_note": "severity 0.50 drawn from the suspicious distribution",
+    "severity": 0.5044,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.27417,
+      "asymmetry": 0.127337,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.64608,
+      "contrast": 0.794427,
+      "intensity_variance": 0.014109,
+      "variegation": 0.037548,
+      "eccentricity": 0.501385,
+      "diameter_norm": 0.687767
+    },
+    "quality": {
+      "focus_score": 6.4308,
+      "clipped_fraction": 0.061,
+      "lesion_area_fraction": 0.2742,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.878
+  },
+  {
+    "study_id": "stu-055",
+    "patient_id": "pat-008",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-055.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.26 drawn from the benign distribution",
+    "severity": 0.2586,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.177734,
+      "asymmetry": 0.060955,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.628454,
+      "contrast": 0.810987,
+      "intensity_variance": 0.005321,
+      "variegation": 0.033649,
+      "eccentricity": 0.385994,
+      "diameter_norm": 0.495987
+    },
+    "quality": {
+      "focus_score": 5.8021,
+      "clipped_fraction": 0.0661,
+      "lesion_area_fraction": 0.1777,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.96
+  },
+  {
+    "study_id": "stu-056",
+    "patient_id": "pat-009",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-056.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "BACK",
+    "truth_note": "severity 0.65 drawn from the suspicious distribution",
+    "severity": 0.6532,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.286438,
+      "asymmetry": 0.19348,
+      "border_irregularity": 0.208821,
+      "edge_gradient": 0.628277,
+      "contrast": 0.750227,
+      "intensity_variance": 0.065911,
+      "variegation": 0.065347,
+      "eccentricity": 0.618796,
+      "diameter_norm": 0.788245
+    },
+    "quality": {
+      "focus_score": 9.1005,
+      "clipped_fraction": 0.0523,
+      "lesion_area_fraction": 0.2864,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.882
+  },
+  {
+    "study_id": "stu-057",
+    "patient_id": "pat-010",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-057.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "BACK",
+    "truth_note": "severity 0.75 drawn from the suspicious distribution",
+    "severity": 0.751,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.363647,
+      "asymmetry": 0.238755,
+      "border_irregularity": 0.308514,
+      "edge_gradient": 0.668524,
+      "contrast": 0.793127,
+      "intensity_variance": 0.003686,
+      "variegation": 0.026243,
+      "eccentricity": 0.618477,
+      "diameter_norm": 0.874616
+    },
+    "quality": {
+      "focus_score": 8.7263,
+      "clipped_fraction": 0.1104,
+      "lesion_area_fraction": 0.3636,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.746
+  },
+  {
+    "study_id": "stu-058",
+    "patient_id": "pat-011",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-058.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "NECK",
+    "truth_note": "severity 0.26 drawn from the benign distribution",
+    "severity": 0.2627,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.208008,
+      "asymmetry": 0.051937,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.647934,
+      "contrast": 0.814974,
+      "intensity_variance": 0.002383,
+      "variegation": 0.021499,
+      "eccentricity": 0.353959,
+      "diameter_norm": 0.54882
+    },
+    "quality": {
+      "focus_score": 7.2889,
+      "clipped_fraction": 0.1208,
+      "lesion_area_fraction": 0.208,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.488
+  },
+  {
+    "study_id": "stu-059",
+    "patient_id": "pat-012",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-059.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.35 drawn from the benign distribution",
+    "severity": 0.3456,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.215027,
+      "asymmetry": 0.096793,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.655209,
+      "contrast": 0.821856,
+      "intensity_variance": 0.002599,
+      "variegation": 0.022927,
+      "eccentricity": 0.421779,
+      "diameter_norm": 0.579681
+    },
+    "quality": {
+      "focus_score": 6.8795,
+      "clipped_fraction": 0.1127,
+      "lesion_area_fraction": 0.215,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.797
+  },
+  {
+    "study_id": "stu-060",
+    "patient_id": "pat-001",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-060.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "CALF",
+    "truth_note": "severity 0.50 drawn from the benign distribution",
+    "severity": 0.504,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.270508,
+      "asymmetry": 0.122631,
+      "border_irregularity": 0.025619,
+      "edge_gradient": 0.65565,
+      "contrast": 0.823528,
+      "intensity_variance": 0.003033,
+      "variegation": 0.024287,
+      "eccentricity": 0.57292,
+      "diameter_norm": 0.728644
+    },
+    "quality": {
+      "focus_score": 7.247,
+      "clipped_fraction": 0.1,
+      "lesion_area_fraction": 0.2705,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 7.286
+  },
+  {
+    "study_id": "stu-061",
+    "patient_id": "pat-002",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-061.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.13 drawn from the benign distribution",
+    "severity": 0.134,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.159058,
+      "asymmetry": 0.026285,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.670562,
+      "contrast": 0.829599,
+      "intensity_variance": 0.001846,
+      "variegation": 0.017724,
+      "eccentricity": 0.214556,
+      "diameter_norm": 0.447378
+    },
+    "quality": {
+      "focus_score": 5.4417,
+      "clipped_fraction": 0.1261,
+      "lesion_area_fraction": 0.1591,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.474
+  },
+  {
+    "study_id": "stu-062",
+    "patient_id": "pat-003",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-062.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.28 drawn from the benign distribution",
+    "severity": 0.2774,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.204346,
+      "asymmetry": 0.067204,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.63178,
+      "contrast": 0.830058,
+      "intensity_variance": 0.002406,
+      "variegation": 0.021446,
+      "eccentricity": 0.374345,
+      "diameter_norm": 0.537493
+    },
+    "quality": {
+      "focus_score": 5.7847,
+      "clipped_fraction": 0.125,
+      "lesion_area_fraction": 0.2043,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.375
+  },
+  {
+    "study_id": "stu-063",
+    "patient_id": "pat-004",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-063.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "NECK",
+    "truth_note": "severity 0.02 drawn from the benign distribution",
+    "severity": 0.02,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.094482,
+      "asymmetry": 0.020672,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.656393,
+      "contrast": 0.813288,
+      "intensity_variance": 0.001555,
+      "variegation": 0.01486,
+      "eccentricity": 0.187962,
+      "diameter_norm": 0.347214
+    },
+    "quality": {
+      "focus_score": 4.8434,
+      "clipped_fraction": 0.0956,
+      "lesion_area_fraction": 0.0945,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 3.472
+  },
+  {
+    "study_id": "stu-064",
+    "patient_id": "pat-005",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-064.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.74 drawn from the suspicious distribution",
+    "severity": 0.7431,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.389221,
+      "asymmetry": 0.185667,
+      "border_irregularity": 0.3262,
+      "edge_gradient": 0.621011,
+      "contrast": 0.767766,
+      "intensity_variance": 0.01028,
+      "variegation": 0.029442,
+      "eccentricity": 0.610114,
+      "diameter_norm": 0.873436
+    },
+    "quality": {
+      "focus_score": 7.5316,
+      "clipped_fraction": 0.1074,
+      "lesion_area_fraction": 0.3892,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.734
+  },
+  {
+    "study_id": "stu-065",
+    "patient_id": "pat-006",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-065.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "FOREARM",
+    "truth_note": "severity 0.81 drawn from the suspicious distribution",
+    "severity": 0.8123,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.407043,
+      "asymmetry": 0.254461,
+      "border_irregularity": 0.36321,
+      "edge_gradient": 0.642941,
+      "contrast": 0.767214,
+      "intensity_variance": 0.00383,
+      "variegation": 0.026213,
+      "eccentricity": 0.663496,
+      "diameter_norm": 0.953417
+    },
+    "quality": {
+      "focus_score": 10.0159,
+      "clipped_fraction": 0.1242,
+      "lesion_area_fraction": 0.407,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 9.534
+  },
+  {
+    "study_id": "stu-066",
+    "patient_id": "pat-007",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-066.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.48 drawn from the benign distribution",
+    "severity": 0.4788,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.256653,
+      "asymmetry": 0.116052,
+      "border_irregularity": 0.001105,
+      "edge_gradient": 0.636007,
+      "contrast": 0.811759,
+      "intensity_variance": 0.024574,
+      "variegation": 0.051917,
+      "eccentricity": 0.442258,
+      "diameter_norm": 0.62761
+    },
+    "quality": {
+      "focus_score": 7.1143,
+      "clipped_fraction": 0.0584,
+      "lesion_area_fraction": 0.2567,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.276
+  },
+  {
+    "study_id": "stu-067",
+    "patient_id": "pat-008",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-067.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "NECK",
+    "truth_note": "severity 0.67 drawn from the benign distribution",
+    "severity": 0.6659,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.352112,
+      "asymmetry": 0.1697,
+      "border_irregularity": 0.274784,
+      "edge_gradient": 0.646302,
+      "contrast": 0.783983,
+      "intensity_variance": 0.004092,
+      "variegation": 0.027234,
+      "eccentricity": 0.624898,
+      "diameter_norm": 0.847152
+    },
+    "quality": {
+      "focus_score": 8.5429,
+      "clipped_fraction": 0.1064,
+      "lesion_area_fraction": 0.3521,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.472
+  },
+  {
+    "study_id": "stu-068",
+    "patient_id": "pat-009",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-068.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.34 drawn from the benign distribution",
+    "severity": 0.3357,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.202881,
+      "asymmetry": 0.083032,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.630001,
+      "contrast": 0.806748,
+      "intensity_variance": 0.002762,
+      "variegation": 0.02302,
+      "eccentricity": 0.464992,
+      "diameter_norm": 0.583998
+    },
+    "quality": {
+      "focus_score": 6.6875,
+      "clipped_fraction": 0.1089,
+      "lesion_area_fraction": 0.2029,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.84
+  },
+  {
+    "study_id": "stu-069",
+    "patient_id": "pat-010",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-069.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "CHEST",
+    "truth_note": "ATYPICAL: labelled suspicious but generated with benign morphology - the model is expected to get this wrong or abstain",
+    "severity": 0.28,
+    "atypical": true,
+    "features": {
+      "area_fraction": 0.221741,
+      "asymmetry": 0.064272,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.607235,
+      "contrast": 0.780336,
+      "intensity_variance": 0.07639,
+      "variegation": 0.074713,
+      "eccentricity": 0.369557,
+      "diameter_norm": 0.566171
+    },
+    "quality": {
+      "focus_score": 6.4369,
+      "clipped_fraction": 0.0649,
+      "lesion_area_fraction": 0.2217,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.662
+  },
+  {
+    "study_id": "stu-070",
+    "patient_id": "pat-011",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-070.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "NECK",
+    "truth_note": "severity 0.33 drawn from the benign distribution",
+    "severity": 0.3338,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.224609,
+      "asymmetry": 0.080571,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.659492,
+      "contrast": 0.815873,
+      "intensity_variance": 0.002326,
+      "variegation": 0.021477,
+      "eccentricity": 0.364338,
+      "diameter_norm": 0.574446
+    },
+    "quality": {
+      "focus_score": 6.1592,
+      "clipped_fraction": 0.1234,
+      "lesion_area_fraction": 0.2246,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.744
+  },
+  {
+    "study_id": "stu-071",
+    "patient_id": "pat-012",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-071.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "CALF",
+    "truth_note": "severity 0.11 drawn from the benign distribution",
+    "severity": 0.1121,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.164185,
+      "asymmetry": 0.033271,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.613194,
+      "contrast": 0.802314,
+      "intensity_variance": 0.002261,
+      "variegation": 0.020461,
+      "eccentricity": 0.215594,
+      "diameter_norm": 0.459675
+    },
+    "quality": {
+      "focus_score": 5.2865,
+      "clipped_fraction": 0.1091,
+      "lesion_area_fraction": 0.1642,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 4.597
+  },
+  {
+    "study_id": "stu-072",
+    "patient_id": "pat-001",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-072.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "CHEST",
+    "truth_note": "severity 0.89 drawn from the suspicious distribution",
+    "severity": 0.8851,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.420532,
+      "asymmetry": 0.302903,
+      "border_irregularity": 0.581155,
+      "edge_gradient": 0.713381,
+      "contrast": 0.81664,
+      "intensity_variance": 0.002102,
+      "variegation": 0.019446,
+      "eccentricity": 0.740275,
+      "diameter_norm": 1.0
+    },
+    "quality": {
+      "focus_score": 11.0472,
+      "clipped_fraction": 0.1624,
+      "lesion_area_fraction": 0.4205,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 10.97
+  },
+  {
+    "study_id": "stu-073",
+    "patient_id": "pat-002",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-073.dcm",
+    "split": "test",
+    "label": 0,
+    "body_site": "BACK",
+    "truth_note": "severity 0.42 drawn from the benign distribution",
+    "severity": 0.4238,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.252197,
+      "asymmetry": 0.098621,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.601552,
+      "contrast": 0.789899,
+      "intensity_variance": 0.008739,
+      "variegation": 0.046139,
+      "eccentricity": 0.469815,
+      "diameter_norm": 0.651232
+    },
+    "quality": {
+      "focus_score": 6.8951,
+      "clipped_fraction": 0.0538,
+      "lesion_area_fraction": 0.2522,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.512
+  },
+  {
+    "study_id": "stu-074",
+    "patient_id": "pat-003",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-074.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "CALF",
+    "truth_note": "severity 0.76 drawn from the suspicious distribution",
+    "severity": 0.7638,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.376282,
+      "asymmetry": 0.168045,
+      "border_irregularity": 0.313525,
+      "edge_gradient": 0.683724,
+      "contrast": 0.799266,
+      "intensity_variance": 0.003232,
+      "variegation": 0.023824,
+      "eccentricity": 0.567411,
+      "diameter_norm": 0.872544
+    },
+    "quality": {
+      "focus_score": 10.6492,
+      "clipped_fraction": 0.1076,
+      "lesion_area_fraction": 0.3763,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 8.725
+  },
+  {
+    "study_id": "stu-075",
+    "patient_id": "pat-004",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-075.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.43 drawn from the suspicious distribution",
+    "severity": 0.434,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.241333,
+      "asymmetry": 0.102934,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.655423,
+      "contrast": 0.828972,
+      "intensity_variance": 0.002315,
+      "variegation": 0.021363,
+      "eccentricity": 0.511101,
+      "diameter_norm": 0.643458
+    },
+    "quality": {
+      "focus_score": 8.3588,
+      "clipped_fraction": 0.1313,
+      "lesion_area_fraction": 0.2413,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 6.435
+  },
+  {
+    "study_id": "stu-076",
+    "patient_id": "pat-005",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-076.dcm",
+    "split": "train",
+    "label": 0,
+    "body_site": "CALF",
+    "truth_note": "ATYPICAL: labelled benign but generated with suspicious morphology - a false positive here is the correct cautious behaviour",
+    "severity": 0.876,
+    "atypical": true,
+    "features": {
+      "area_fraction": 0.433838,
+      "asymmetry": 0.254959,
+      "border_irregularity": 0.549275,
+      "edge_gradient": 0.649162,
+      "contrast": 0.786365,
+      "intensity_variance": 0.034645,
+      "variegation": 0.030861,
+      "eccentricity": 0.694412,
+      "diameter_norm": 1.0
+    },
+    "quality": {
+      "focus_score": 10.7064,
+      "clipped_fraction": 0.1006,
+      "lesion_area_fraction": 0.4338,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 10.381
+  },
+  {
+    "study_id": "stu-077",
+    "patient_id": "pat-006",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-077.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "BACK",
+    "truth_note": "severity 0.93 drawn from the suspicious distribution",
+    "severity": 0.9285,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.471191,
+      "asymmetry": 0.225907,
+      "border_irregularity": 0.674106,
+      "edge_gradient": 0.643364,
+      "contrast": 0.747879,
+      "intensity_variance": 0.053597,
+      "variegation": 0.03645,
+      "eccentricity": 0.642709,
+      "diameter_norm": 1.0
+    },
+    "quality": {
+      "focus_score": 9.1591,
+      "clipped_fraction": 0.0475,
+      "lesion_area_fraction": 0.4712,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 10.051
+  },
+  {
+    "study_id": "stu-078",
+    "patient_id": "pat-007",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-078.dcm",
+    "split": "train",
+    "label": 1,
+    "body_site": "FOREARM",
+    "truth_note": "ATYPICAL: labelled suspicious but generated with benign morphology - the model is expected to get this wrong or abstain",
+    "severity": 0.3131,
+    "atypical": true,
+    "features": {
+      "area_fraction": 0.184021,
+      "asymmetry": 0.089718,
+      "border_irregularity": 0.0,
+      "edge_gradient": 0.677029,
+      "contrast": 0.819508,
+      "intensity_variance": 0.011705,
+      "variegation": 0.026661,
+      "eccentricity": 0.431478,
+      "diameter_norm": 0.540254
+    },
+    "quality": {
+      "focus_score": 5.6623,
+      "clipped_fraction": 0.1184,
+      "lesion_area_fraction": 0.184,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 5.403
+  },
+  {
+    "study_id": "stu-079",
+    "patient_id": "pat-008",
+    "path": "/vercel/sandbox/data/nullius/data/dicom/stu-079.dcm",
+    "split": "test",
+    "label": 1,
+    "body_site": "SHOULDER",
+    "truth_note": "severity 0.87 drawn from the suspicious distribution",
+    "severity": 0.8713,
+    "atypical": false,
+    "features": {
+      "area_fraction": 0.362,
+      "asymmetry": 0.214972,
+      "border_irregularity": 0.551029,
+      "edge_gradient": 0.679024,
+      "contrast": 0.790268,
+      "intensity_variance": 0.035329,
+      "variegation": 0.026159,
+      "eccentricity": 0.657439,
+      "diameter_norm": 0.919079
+    },
+    "quality": {
+      "focus_score": 9.8082,
+      "clipped_fraction": 0.1282,
+      "lesion_area_fraction": 0.362,
+      "dynamic_range": 1.0
+    },
+    "diameter_mm": 9.191
+  }
+]

@@ -1,0 +1,52 @@
+name: pages
+
+# Publishes the inference control plane to GitHub Pages. The site is not a
+# hand-written brochure: build_site.py regenerates it from a real pipeline run,
+# so anything published has been produced by code that just executed.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Train the lesion model (no dependencies required)
+        run: python3 scripts/train_lesion_model.py
+
+      - name: Run the evaluation pipeline
+        run: python3 scripts/run_pipeline.py
+
+      - name: Build the control plane site
+        run: python3 scripts/build_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
