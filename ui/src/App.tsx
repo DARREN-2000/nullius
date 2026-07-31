@@ -35,7 +35,7 @@ function App() {
     }
   };
 
-  if (!data) return <div style={{padding: '5rem', textAlign: 'center'}}>Loading Inference Control Plane...</div>;
+  if (!data) return <div style={{padding: '5rem', textAlign: 'center'}}>Loading Clinical Decision Support System...</div>;
 
   const study = data.studies[currentStudyIdx];
   const r = study.result;
@@ -78,7 +78,7 @@ function App() {
             NULLIUS
           </div>
           <nav className="nav">
-            <a href="#control-plane">Control Plane</a>
+            <a href="#control-plane">Nullius Copilot</a>
             <a href="#playground">Playground</a>
           </nav>
         </div>
@@ -86,7 +86,7 @@ function App() {
 
       <div className="hero">
         <div className="container">
-          <div className="eyebrow">Clinical Inference Control Plane</div>
+          <div className="eyebrow">Clinical Decision Support System</div>
           <h1>Take nobody's word for it.</h1>
           <p>
             Nullius in verba. A clinical decision support platform whose central design claim is not that the model is clever, but that nothing reaches a clinician unless it survives a gate that can be switched off and measured.
@@ -102,7 +102,7 @@ function App() {
       <section id="control-plane" className="section">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Inference Control Plane</h2>
+            <h2 className="section-title">Clinical Decision Support System</h2>
             <p className="section-desc">Every study below was decoded, de-identified, preprocessed, scored and traced when this page was generated. Select one to see the gate ladder it passed through.</p>
           </div>
 
