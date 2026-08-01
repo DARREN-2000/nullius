@@ -101,8 +101,8 @@ export default function App() {
             <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
               Nullius — Copilot Dashboard
             </h1>
-            <a href="/nullius/" className="mt-4 inline-block text-sm font-medium text-[var(--accent-strong)] hover:underline">
-              &larr; Back to Website
+            <a href="https://github.com/DARREN-2000/nullius" className="mt-4 inline-block text-sm font-medium text-[var(--accent-strong)] hover:underline">
+              &larr; View on GitHub
             </a>
             <p className="mt-2 max-w-2xl text-sm/6 text-neutral-700 md:text-base/7">
               Deterministic gate verification for every clinical evaluation. Nullius in verba.
