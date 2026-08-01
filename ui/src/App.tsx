@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import './index.css';
+import { useEffect, useMemo, useState } from "react";
+import type { FormEvent } from "react";
+import "./index.css";
 
 interface StudyResult {
   served: boolean;
@@ -45,17 +46,19 @@ interface Report {
 export default function App() {
   const [payload, setPayload] = useState<Payload | null>(null);
   const [report, setReport] = useState<Report | null>(null);
-  const [activeStudy, setActiveStudy] = useState<Study | null>(null);
-  const [imageTab, setImageTab] = useState<'input' | 'overlay'>('overlay');
+  
+  const [apiKey, setApiKey] = useState("dev-copilot-key");
+  const [prompt, setPrompt] = useState("Evaluate this study.");
+  const [userId, setUserId] = useState("clinician-1");
+  const [priority, setPriority] = useState<"low" | "high">("low");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLogsLoading, setIsLogsLoading] = useState(false);
 
   useEffect(() => {
     fetch('payload.json')
       .then(r => r.json())
       .then((data: Payload) => {
         setPayload(data);
-        if (data.studies && data.studies.length > 0) {
-          setActiveStudy(data.studies[0]);
-        }
       })
       .catch(e => console.error('Failed to load payload.json', e));
 
@@ -65,8 +68,12 @@ export default function App() {
       .catch(e => console.error('Failed to load report.json', e));
   }, []);
 
+  const derivedModel = useMemo(() => {
+    return priority === "high" ? "premium-model" : "smart-router";
+  }, [priority]);
+
   const kpiP95 = report?.p95Latency || '218ms';
-  const kpiP95Delta = report?.latencyDelta || 'vs baseline';
+  const kpiP95Delta = report?.latencyDelta || '-11%';
   const kpiPassRate = report?.gatePassRate || '67.4%';
   const kpiPassRateDelta = report?.passRateDelta || '+9%';
   
@@ -74,210 +81,241 @@ export default function App() {
   const refusedCount = payload?.studies?.filter(s => s.result.served === false).length || 0;
   const refusalRate = totalStudies > 0 ? ((refusedCount / totalStudies) * 100).toFixed(1) + '%' : '0%';
 
+  function loadRecentLogs() {
+    setIsLogsLoading(true);
+    setTimeout(() => setIsLogsLoading(false), 800);
+  }
+
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 1200);
+  }
+
   return (
-    <div className="cp-shell">
-      <header className="cp-card cp-card-strong cp-animate">
-        <div className="header-content">
-          <span className="cp-label">CLINICAL DECISION SUPPORT</span>
-          <h1>Nullius — Clinical Copilot Dashboard</h1>
-          <p>Deterministic gate verification for every clinical evaluation. Nullius in verba.</p>
-        </div>
-        <div className="status-pills">
-          <div className="cp-pill">
-            <div className="cp-dot cp-dot-green"></div>
-            All gates active
+    <main className="cp-shell">
+      <header className="cp-card cp-card-strong mb-4 p-5 md:p-7 cp-animate cp-animate-delay-1">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="cp-label text-[var(--accent-strong)]">Clinical Decision Support</p>
+            <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
+              Nullius — Copilot Dashboard
+            </h1>
+            <a href="#" className="mt-4 inline-block text-sm font-medium text-[var(--accent-strong)] hover:underline">
+              &larr; Back to Website
+            </a>
+            <p className="mt-2 max-w-2xl text-sm/6 text-neutral-700 md:text-base/7">
+              Deterministic gate verification for every clinical evaluation. Nullius in verba.
+            </p>
           </div>
-          <div className="cp-pill">
-            <div className="cp-dot cp-dot-cyan"></div>
-            ONNX runtime
-          </div>
-          <div className="cp-pill">
-            <div className="cp-dot cp-dot-amber"></div>
-            NLI judge enabled
+          <div className="flex flex-wrap gap-2">
+            <span className="cp-pill">
+              <span className="cp-dot bg-emerald-500" /> All gates active
+            </span>
+            <span className="cp-pill">
+              <span className="cp-dot bg-cyan-600" /> ONNX runtime
+            </span>
+            <span className="cp-pill">
+              <span className="cp-dot bg-fuchsia-500" /> NLI judge enabled
+            </span>
+            <span className="cp-pill">
+              <span className="cp-dot bg-amber-500" /> Routing: {derivedModel}
+            </span>
           </div>
         </div>
       </header>
 
-      <section className="cp-grid cp-grid-4 cp-animate cp-animate-delay-1">
-        <div className="cp-card">
-          <span className="cp-label">P95 LATENCY</span>
-          <div className="kpi-value">
-            {kpiP95} <span className="kpi-delta">{kpiP95Delta}</span>
-          </div>
-        </div>
-        <div className="cp-card">
-          <span className="cp-label">GATE PASS RATE</span>
-          <div className="kpi-value">
-            {kpiPassRate} <span className="kpi-delta">{kpiPassRateDelta}</span>
-          </div>
-        </div>
-        <div className="cp-card">
-          <span className="cp-label">STUDIES PROCESSED</span>
-          <div className="kpi-value">{totalStudies}</div>
-        </div>
-        <div className="cp-card">
-          <span className="cp-label">REFUSAL RATE</span>
-          <div className="kpi-value">{refusalRate}</div>
-        </div>
+      <section className="cp-grid mb-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+        <article className="cp-card p-4 cp-animate cp-animate-delay-2">
+          <p className="cp-label text-neutral-600">P95 Latency</p>
+          <p className="mt-1 text-2xl font-bold">{kpiP95}</p>
+          <p className="mt-1 text-sm text-emerald-700">{kpiP95Delta} vs baseline</p>
+        </article>
+        <article className="cp-card p-4 cp-animate cp-animate-delay-3">
+          <p className="cp-label text-neutral-600">Gate Pass Rate</p>
+          <p className="mt-1 text-2xl font-bold">{kpiPassRate}</p>
+          <p className="mt-1 text-sm text-emerald-700">{kpiPassRateDelta} vs baseline</p>
+        </article>
+        <article className="cp-card p-4 cp-animate cp-animate-delay-4">
+          <p className="cp-label text-neutral-600">Studies Processed</p>
+          <p className="mt-1 text-2xl font-bold">{totalStudies}</p>
+          <p className="mt-1 text-sm text-emerald-700">Total in payload</p>
+        </article>
+        <article className="cp-card p-4 cp-animate cp-animate-delay-5">
+          <p className="cp-label text-neutral-600">Refusal Rate</p>
+          <p className="mt-1 text-2xl font-bold">{refusalRate}</p>
+          <p className="mt-1 text-sm text-emerald-700">Refused by gates</p>
+        </article>
       </section>
 
-      <main className="cp-grid cp-grid-main cp-animate cp-animate-delay-2">
-        <article className="cp-card">
-          <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+      <section className="cp-grid grid-cols-1 xl:grid-cols-[1.4fr_1fr]">
+        <article className="cp-card p-5 md:p-6 cp-animate cp-animate-delay-2">
+          <div className="mb-4 flex items-end justify-between">
             <div>
-              <span className="cp-label">LIVE PLAYGROUND</span>
-              <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Clinical Copilot API</h2>
+              <p className="cp-label text-neutral-600">Live Playground</p>
+              <h2 className="text-xl font-semibold">Generate With Clinical API</h2>
             </div>
-            <p className="cp-label" style={{ color: '#6b7280', marginBottom: 0 }}>POST /copilot/ask</p>
+            <p className="cp-label text-neutral-500">POST /copilot/ask</p>
           </div>
 
-          <div className="playground-form" style={{ marginTop: 0 }}>
-            <div style={{ display: 'grid', gap: '0.75rem', gridTemplateColumns: '1fr 1fr' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <label className="cp-label" style={{ color: '#4b5563', marginBottom: 0 }}>Role <span style={{ color: 'var(--danger)' }}>*</span></label>
-                <select className="cp-select" defaultValue="clinician">
-                  <option value="clinician">Clinician</option>
-                  <option value="nurse">Nurse</option>
-                  <option value="radiologist">Radiologist</option>
+          <form onSubmit={onSubmit}>
+            <fieldset disabled={isLoading} className="space-y-3">
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="space-y-1">
+                <label htmlFor="userId" className="cp-label block text-neutral-600">
+                  User ID <span className="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="userId"
+                  className="cp-input"
+                  value={userId}
+                  onChange={(event) => setUserId(event.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-1">
+                <label htmlFor="apiKey" className="cp-label block text-neutral-600">
+                  API Key <span className="text-red-500" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="apiKey"
+                  className="cp-input"
+                  value={apiKey}
+                  onChange={(event) => setApiKey(event.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <label htmlFor="prompt" className="cp-label block text-neutral-600">
+                Prompt <span className="text-red-500" aria-hidden="true">*</span>
+                <span className="ml-2 text-xs font-normal normal-case tracking-normal text-neutral-400">
+                  (Cmd/Ctrl + Enter to run)
+                </span>
+              </label>
+              <textarea
+                id="prompt"
+                className="cp-input min-h-32"
+                value={prompt}
+                onChange={(event) => setPrompt(event.target.value)}
+                onKeyDown={(event) => {
+                  if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+                    event.preventDefault();
+                    if (!isLoading) {
+                      event.currentTarget.form?.requestSubmit();
+                    }
+                  }
+                }}
+                required
+              />
+            </div>
+
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div className="space-y-1">
+                <label htmlFor="priority" className="cp-label block text-neutral-600">Priority</label>
+                <select
+                  id="priority"
+                  className="cp-input"
+                  value={priority}
+                  onChange={(event) => setPriority(event.target.value as "low" | "high")}
+                >
+                  <option value="low">Low</option>
+                  <option value="high">High</option>
                 </select>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-                <label className="cp-label" style={{ color: '#4b5563', marginBottom: 0 }}>Patient ID <span style={{ color: 'var(--danger)' }}>*</span></label>
-                <input type="text" className="cp-input" placeholder="e.g. P-10943" />
-              </div>
-            </div>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              <label className="cp-label" style={{ color: '#4b5563', marginBottom: 0 }}>Clinical Question <span style={{ color: 'var(--danger)' }}>*</span></label>
-              <textarea className="cp-textarea" placeholder="Ask a question about the study..."></textarea>
-            </div>
-            
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
-              <button className="cp-button" style={{ minWidth: '14rem' }}>Run Copilot</button>
-            </div>
-          </div>
 
-          {activeStudy && (
-            <div className="study-detail cp-animate" style={{ marginTop: '2rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <h3>Study Evaluation: {activeStudy.id}</h3>
-                <span className="cp-label">Trace: {activeStudy.result.traceId || 'N/A'}</span>
-              </div>
-              
-              <div className={`verdict-box ${activeStudy.result.served ? 'served' : 'refused'}`}>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', fontSize: '0.85rem', marginBottom: '0.5rem' }}>
-                  <span><strong>Verdict:</strong> {activeStudy.result.served ? 'Served' : 'Refused'}</span>
-                  <span><strong>Latency:</strong> {activeStudy.result.latencyMs ? `${activeStudy.result.latencyMs}ms` : 'N/A'}</span>
-                  {activeStudy.result.probability !== undefined && payload?.operatingPoint !== undefined && (
-                    <span><strong>Score:</strong> {(activeStudy.result.probability * 100).toFixed(1)}% (OP: {(payload.operatingPoint * 100).toFixed(1)}%)</span>
-                  )}
-                </div>
-                {activeStudy.result.refusalReason && (
-                  <p style={{ fontSize: '0.85rem', color: 'var(--danger)' }}>
-                    Reason: {activeStudy.result.refusalReason}
-                  </p>
+              <button
+                className="cp-button md:min-w-56"
+                aria-busy={isLoading}
+                type="submit"
+              >
+                {isLoading && (
+                  <svg aria-hidden="true" className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
                 )}
-                {activeStudy.result.detail && (
-                  <p style={{ fontSize: '0.85rem', marginTop: '0.25rem' }}>
-                    {activeStudy.result.detail}
-                  </p>
-                )}
-              </div>
-
-              {(activeStudy.pngInput || activeStudy.pngOverlay) && (
-               <div className="image-viewer">
-                 <div className="image-tabs">
-                   {activeStudy.pngInput && (
-                     <button 
-                       className={`image-tab ${imageTab === 'input' ? 'active' : ''}`}
-                       onClick={() => setImageTab('input')}
-                     >
-                       Input
-                     </button>
-                   )}
-                   {activeStudy.pngOverlay && (
-                     <button 
-                       className={`image-tab ${imageTab === 'overlay' ? 'active' : ''}`}
-                       onClick={() => setImageTab('overlay')}
-                     >
-                       Segmentation
-                     </button>
-                   )}
-                 </div>
-                 <img 
-                   src={`data:image/png;base64,${imageTab === 'input' ? activeStudy.pngInput : activeStudy.pngOverlay}`} 
-                   className="large-image" 
-                   alt="Study detail" 
-                 />
-               </div>
-              )}
+                {isLoading ? "Evaluating..." : "Run Copilot"}
+              </button>
             </div>
-          )}
+            </fieldset>
+          </form>
+
         </article>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div className="cp-card cp-animate cp-animate-delay-3">
-            <span className="cp-label">USAGE TREND</span>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem' }}>24h Request Volume</h3>
-            <div className="cp-chart"></div>
-          </div>
+        <div className="cp-grid grid-cols-1 gap-4">
+          <article className="cp-card p-5 cp-animate cp-animate-delay-3">
+            <p className="cp-label text-neutral-600">Usage Trend</p>
+            <h3 className="text-lg font-semibold">24h Request Volume</h3>
+            <div className="cp-chart mt-3" />
+          </article>
 
-          <div className="cp-card cp-animate cp-animate-delay-4">
-            <span className="cp-label">OPERATIONAL ACTIVITY</span>
-            <ul className="gate-activity-list" style={{ marginTop: '0.75rem' }}>
-              <li>
-                <span>Quality check threshold updated</span>
+          <article className="cp-card p-5 cp-animate cp-animate-delay-4">
+            <p className="cp-label text-neutral-600">Gate Activity</p>
+            <ul className="mt-3 space-y-2 text-sm text-neutral-700">
+              <li className="rounded-lg border border-[var(--border)] bg-[#fffdf8] p-2">
+                Quality check threshold updated
               </li>
-              <li>
-                <span>Model routing fell back to CPU</span>
+              <li className="rounded-lg border border-[var(--border)] bg-[#fffdf8] p-2">
+                Model routing fell back to CPU
               </li>
-              <li>
-                <span>NLI judge confidence lowered</span>
+              <li className="rounded-lg border border-[var(--border)] bg-[#fffdf8] p-2">
+                NLI judge confidence lowered
               </li>
             </ul>
-          </div>
+          </article>
 
-          <div className="cp-card cp-animate cp-animate-delay-5">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+          <article className="cp-card p-5 cp-animate cp-animate-delay-5">
+            <div className="flex items-center justify-between gap-2">
               <div>
-                <span className="cp-label">STUDY LOGS</span>
-                <h3 style={{ fontSize: '1.125rem', fontWeight: 600 }}>Recent Evaluations</h3>
+                <p className="cp-label text-neutral-600">Evaluation Logs</p>
+                <h3 className="text-lg font-semibold">Recent Requests</h3>
               </div>
-              <button className="cp-button" style={{ padding: '0.5rem 0.75rem', fontSize: '0.75rem' }}>Refresh</button>
+              <button
+                className="cp-button px-3 py-2 text-sm"
+                disabled={isLogsLoading}
+                aria-busy={isLogsLoading}
+                onClick={loadRecentLogs}
+                type="button"
+              >
+                {isLogsLoading && (
+                  <svg aria-hidden="true" className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                )}
+                {isLogsLoading ? "Loading..." : "Refresh"}
+              </button>
             </div>
 
-            <div className="study-list" style={{ maxHeight: '300px' }}>
-              {payload?.studies?.map(study => {
-                const status = study.result.served ? 'served' : (study.result.refusalReason ? 'refused' : 'review');
-                return (
-                  <div 
-                    key={study.id} 
-                    className={`study-item ${activeStudy?.id === study.id ? 'active' : ''}`}
-                    onClick={() => setActiveStudy(study)}
-                    style={{ padding: '0.5rem', gap: '0.75rem' }}
-                  >
-                    <div className="study-info">
-                      <div style={{ display: 'flex', gap: '0.5rem', fontSize: '0.75rem', color: '#666', flexWrap: 'wrap' }}>
-                        <span className="study-id" style={{ color: 'var(--fg)' }}>{study.id}</span>
-                        <span>{study.result.latencyMs ? `${study.result.latencyMs}ms` : ''}</span>
-                        <span>{study.result.served ? 'cache hit' : 'cache miss'}</span>
-                      </div>
-                      <div className="study-site" style={{ marginTop: '0.25rem' }}>Status: {status}</div>
-                    </div>
-                  </div>
-                );
-              })}
-              {(!payload?.studies || payload.studies.length === 0) && (
-                <div style={{ padding: '1rem', textAlign: 'center', color: '#888' }}>No logs available</div>
+            <div className="mt-3 space-y-2 text-sm max-h-[300px] overflow-y-auto pr-2">
+              {(!payload?.studies || payload.studies.length === 0) && !isLogsLoading && (
+                <p className="rounded-lg border border-[var(--border)] bg-[#fffdf8] p-3 text-neutral-600">
+                  No evaluation logs yet.
+                </p>
               )}
-            </div>
-          </div>
-        </div>
-      </main>
 
-      <footer className="cp-animate cp-animate-delay-6">
-        nullius in verba — Royal Society, 1660
-      </footer>
-    </div>
+              {payload?.studies?.map((entry) => (
+                <div
+                  key={entry.id}
+                  className="rounded-lg border border-[var(--border)] bg-[#fffdf8] p-3"
+                >
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-600">
+                    <span className="font-mono text-neutral-800 font-semibold">{entry.id}</span>
+                    <span>{entry.result.latencyMs ? `${entry.result.latencyMs}ms` : 'N/A'}</span>
+                    <span>{entry.result.served ? "cache hit" : "cache miss"}</span>
+                  </div>
+                  <p className="mt-1 text-xs text-neutral-500">Status: {entry.result.served ? 'success' : 'refused'}</p>
+                  {entry.result.refusalReason && (
+                    <p className="mt-1 text-xs text-[var(--danger)]">{entry.result.refusalReason}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
   );
 }
