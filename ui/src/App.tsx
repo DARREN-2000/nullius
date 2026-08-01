@@ -79,8 +79,8 @@ export default function App() {
       <header className="cp-card cp-card-strong cp-animate">
         <div className="header-content">
           <span className="cp-label">CLINICAL DECISION SUPPORT</span>
-          <h1>Nullius — Inference Dashboard</h1>
-          <p>Deterministic gate verification for every clinical inference. Nullius in verba.</p>
+          <h1>Nullius — Clinical Copilot Dashboard</h1>
+          <p>Deterministic gate verification for every clinical evaluation. Nullius in verba.</p>
         </div>
         <div className="status-pills">
           <div className="cp-pill">
@@ -123,53 +123,57 @@ export default function App() {
 
       <main className="cp-grid cp-grid-main cp-animate cp-animate-delay-2">
         <article className="cp-card">
-          <span className="cp-label">STUDY EXPLORER</span>
-          <h2 style={{ marginBottom: '0.25rem' }}>Gate Verification Results</h2>
-          <p style={{ color: '#555', fontSize: '0.85rem', marginBottom: '1.5rem', fontFamily: 'var(--font-mono)' }}>POST /copilot/ask</p>
-          
-          <div className="study-list">
-            {payload?.studies?.map(study => {
-              const status = study.result.served ? 'served' : (study.result.refusalReason ? 'refused' : 'review');
-              return (
-                <div 
-                  key={study.id} 
-                  className={`study-item ${activeStudy?.id === study.id ? 'active' : ''}`}
-                  onClick={() => setActiveStudy(study)}
-                >
-                  {study.pngOverlay && (
-                    <img src={`data:image/png;base64,${study.pngOverlay}`} className="study-thumb" alt="Thumbnail" />
-                  )}
-                  <div className="study-info">
-                    <div className="study-id">{study.id}</div>
-                    <div className="study-site">{study.site}</div>
-                  </div>
-                  <div className={`badge badge-${status}`}>
-                    {status}
-                  </div>
-                </div>
-              );
-            })}
-            {(!payload?.studies || payload.studies.length === 0) && (
-              <div style={{ padding: '1rem', textAlign: 'center', color: '#888' }}>No studies available</div>
-            )}
+          <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
+            <div>
+              <span className="cp-label">LIVE PLAYGROUND</span>
+              <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Clinical Copilot API</h2>
+            </div>
+            <p className="cp-label" style={{ color: '#6b7280', marginBottom: 0 }}>POST /copilot/ask</p>
+          </div>
+
+          <div className="playground-form" style={{ marginTop: 0 }}>
+            <div style={{ display: 'grid', gap: '0.75rem', gridTemplateColumns: '1fr 1fr' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <label className="cp-label" style={{ color: '#4b5563', marginBottom: 0 }}>Role <span style={{ color: 'var(--danger)' }}>*</span></label>
+                <select className="cp-select" defaultValue="clinician">
+                  <option value="clinician">Clinician</option>
+                  <option value="nurse">Nurse</option>
+                  <option value="radiologist">Radiologist</option>
+                </select>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                <label className="cp-label" style={{ color: '#4b5563', marginBottom: 0 }}>Patient ID <span style={{ color: 'var(--danger)' }}>*</span></label>
+                <input type="text" className="cp-input" placeholder="e.g. P-10943" />
+              </div>
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <label className="cp-label" style={{ color: '#4b5563', marginBottom: 0 }}>Clinical Question <span style={{ color: 'var(--danger)' }}>*</span></label>
+              <textarea className="cp-textarea" placeholder="Ask a question about the study..."></textarea>
+            </div>
+            
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem' }}>
+              <button className="cp-button" style={{ minWidth: '14rem' }}>Run Copilot</button>
+            </div>
           </div>
 
           {activeStudy && (
-            <div className="study-detail cp-animate">
-              <h3>Study Details</h3>
-              <div className="detail-row" style={{ marginTop: '1rem' }}>
-                <span className="cp-label">Trace ID</span>
-                <span style={{ fontFamily: 'var(--font-mono)' }}>{activeStudy.result.traceId || 'N/A'}</span>
+            <div className="study-detail cp-animate" style={{ marginTop: '2rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <h3>Study Evaluation: {activeStudy.id}</h3>
+                <span className="cp-label">Trace: {activeStudy.result.traceId || 'N/A'}</span>
               </div>
-              <div className="detail-row">
-                <span className="cp-label">Latency</span>
-                <span>{activeStudy.result.latencyMs ? `${activeStudy.result.latencyMs}ms` : 'N/A'}</span>
-              </div>
-
+              
               <div className={`verdict-box ${activeStudy.result.served ? 'served' : 'refused'}`}>
-                <strong>{activeStudy.result.served ? 'Served' : 'Refused'}</strong>
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', fontSize: '0.85rem', marginBottom: '0.5rem' }}>
+                  <span><strong>Verdict:</strong> {activeStudy.result.served ? 'Served' : 'Refused'}</span>
+                  <span><strong>Latency:</strong> {activeStudy.result.latencyMs ? `${activeStudy.result.latencyMs}ms` : 'N/A'}</span>
+                  {activeStudy.result.probability !== undefined && payload?.operatingPoint !== undefined && (
+                    <span><strong>Score:</strong> {(activeStudy.result.probability * 100).toFixed(1)}% (OP: {(payload.operatingPoint * 100).toFixed(1)}%)</span>
+                  )}
+                </div>
                 {activeStudy.result.refusalReason && (
-                  <p style={{ fontSize: '0.85rem', marginTop: '0.25rem', color: 'var(--danger)' }}>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--danger)' }}>
                     Reason: {activeStudy.result.refusalReason}
                   </p>
                 )}
@@ -180,53 +184,32 @@ export default function App() {
                 )}
               </div>
 
-              {activeStudy.result.probability !== undefined && payload?.operatingPoint !== undefined && (
-                <div>
-                  <span className="cp-label">Model Probability vs Operating Point</span>
-                  <div className="score-bar-container">
-                    <div 
-                      className="score-bar-fill" 
-                      style={{ width: `${Math.min(100, Math.max(0, activeStudy.result.probability * 100))}%` }}
-                    />
-                    <div 
-                      className="score-bar-marker" 
-                      style={{ left: `${payload.operatingPoint * 100}%` }}
-                      title={`Operating Point: ${payload.operatingPoint}`}
-                    />
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>
-                    <span>{(activeStudy.result.probability * 100).toFixed(1)}%</span>
-                    <span>OP: {(payload.operatingPoint * 100).toFixed(1)}%</span>
-                  </div>
-                </div>
-              )}
-
               {(activeStudy.pngInput || activeStudy.pngOverlay) && (
-                <div className="image-viewer">
-                  <div className="image-tabs">
-                    {activeStudy.pngInput && (
-                      <button 
-                        className={`image-tab ${imageTab === 'input' ? 'active' : ''}`}
-                        onClick={() => setImageTab('input')}
-                      >
-                        Input
-                      </button>
-                    )}
-                    {activeStudy.pngOverlay && (
-                      <button 
-                        className={`image-tab ${imageTab === 'overlay' ? 'active' : ''}`}
-                        onClick={() => setImageTab('overlay')}
-                      >
-                        Segmentation
-                      </button>
-                    )}
-                  </div>
-                  <img 
-                    src={`data:image/png;base64,${imageTab === 'input' ? activeStudy.pngInput : activeStudy.pngOverlay}`} 
-                    className="large-image" 
-                    alt="Study detail" 
-                  />
-                </div>
+               <div className="image-viewer">
+                 <div className="image-tabs">
+                   {activeStudy.pngInput && (
+                     <button 
+                       className={`image-tab ${imageTab === 'input' ? 'active' : ''}`}
+                       onClick={() => setImageTab('input')}
+                     >
+                       Input
+                     </button>
+                   )}
+                   {activeStudy.pngOverlay && (
+                     <button 
+                       className={`image-tab ${imageTab === 'overlay' ? 'active' : ''}`}
+                       onClick={() => setImageTab('overlay')}
+                     >
+                       Segmentation
+                     </button>
+                   )}
+                 </div>
+                 <img 
+                   src={`data:image/png;base64,${imageTab === 'input' ? activeStudy.pngInput : activeStudy.pngOverlay}`} 
+                   className="large-image" 
+                   alt="Study detail" 
+                 />
+               </div>
               )}
             </div>
           )}
@@ -235,42 +218,58 @@ export default function App() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div className="cp-card cp-animate cp-animate-delay-3">
             <span className="cp-label">USAGE TREND</span>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem' }}>24h Request Volume</h3>
             <div className="cp-chart"></div>
           </div>
 
           <div className="cp-card cp-animate cp-animate-delay-4">
-            <span className="cp-label">GATE ACTIVITY</span>
-            <ul className="gate-activity-list">
+            <span className="cp-label">OPERATIONAL ACTIVITY</span>
+            <ul className="gate-activity-list" style={{ marginTop: '0.75rem' }}>
               <li>
-                <span style={{ fontFamily: 'var(--font-mono)' }}>QualityCheck</span>
-                <span style={{ color: '#10b981' }}>PASS</span>
+                <span>Quality check threshold updated</span>
               </li>
               <li>
-                <span style={{ fontFamily: 'var(--font-mono)' }}>TriageRouter</span>
-                <span style={{ color: '#10b981' }}>PASS</span>
+                <span>Model routing fell back to CPU</span>
               </li>
               <li>
-                <span style={{ fontFamily: 'var(--font-mono)' }}>AnatomyVerif</span>
-                <span style={{ color: '#f59e0b' }}>WARN</span>
-              </li>
-              <li>
-                <span style={{ fontFamily: 'var(--font-mono)' }}>NLISemantics</span>
-                <span style={{ color: '#10b981' }}>PASS</span>
+                <span>NLI judge confidence lowered</span>
               </li>
             </ul>
           </div>
 
           <div className="cp-card cp-animate cp-animate-delay-5">
-            <span className="cp-label">COPILOT PLAYGROUND</span>
-            <div className="playground-form">
-              <select className="cp-select" defaultValue="clinician">
-                <option value="clinician">Clinician</option>
-                <option value="nurse">Nurse</option>
-                <option value="radiologist">Radiologist</option>
-              </select>
-              <input type="text" className="cp-input" placeholder="Patient ID (e.g. P-10943)" />
-              <textarea className="cp-textarea" placeholder="Ask a question about the study..."></textarea>
-              <button className="cp-button">Run Inference</button>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+              <div>
+                <span className="cp-label">STUDY LOGS</span>
+                <h3 style={{ fontSize: '1.125rem', fontWeight: 600 }}>Recent Evaluations</h3>
+              </div>
+              <button className="cp-button" style={{ padding: '0.5rem 0.75rem', fontSize: '0.75rem' }}>Refresh</button>
+            </div>
+
+            <div className="study-list" style={{ maxHeight: '300px' }}>
+              {payload?.studies?.map(study => {
+                const status = study.result.served ? 'served' : (study.result.refusalReason ? 'refused' : 'review');
+                return (
+                  <div 
+                    key={study.id} 
+                    className={`study-item ${activeStudy?.id === study.id ? 'active' : ''}`}
+                    onClick={() => setActiveStudy(study)}
+                    style={{ padding: '0.5rem', gap: '0.75rem' }}
+                  >
+                    <div className="study-info">
+                      <div style={{ display: 'flex', gap: '0.5rem', fontSize: '0.75rem', color: '#666', flexWrap: 'wrap' }}>
+                        <span className="study-id" style={{ color: 'var(--fg)' }}>{study.id}</span>
+                        <span>{study.result.latencyMs ? `${study.result.latencyMs}ms` : ''}</span>
+                        <span>{study.result.served ? 'cache hit' : 'cache miss'}</span>
+                      </div>
+                      <div className="study-site" style={{ marginTop: '0.25rem' }}>Status: {status}</div>
+                    </div>
+                  </div>
+                );
+              })}
+              {(!payload?.studies || payload.studies.length === 0) && (
+                <div style={{ padding: '1rem', textAlign: 'center', color: '#888' }}>No logs available</div>
+              )}
             </div>
           </div>
         </div>
