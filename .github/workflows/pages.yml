@@ -34,6 +34,9 @@ jobs:
       - name: Run the evaluation pipeline
         run: python3 scripts/run_pipeline.py
 
+      - name: Build the control plane site
+        run: python3 scripts/build_site.py
+
       - name: Build the payload JSON
         run: python3 scripts/build_payload.py
 
@@ -45,9 +48,12 @@ jobs:
       - name: Build the UI
         run: cd ui && npm install && npm run build
 
+      - name: Combine Site and Dashboard
+        run: cp -r ui/dist docs/dashboard
+
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ui/dist
+          path: docs
 
   deploy:
     needs: build

@@ -101,7 +101,7 @@ export default function App() {
             <h1 className="text-3xl font-bold tracking-tight md:text-4xl">
               Nullius — Copilot Dashboard
             </h1>
-            <a href="#" className="mt-4 inline-block text-sm font-medium text-[var(--accent-strong)] hover:underline">
+            <a href="/nullius/" className="mt-4 inline-block text-sm font-medium text-[var(--accent-strong)] hover:underline">
               &larr; Back to Website
             </a>
             <p className="mt-2 max-w-2xl text-sm/6 text-neutral-700 md:text-base/7">
